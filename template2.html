@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> 
+        |Template 1|
+        </title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="template2.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function(){
+            $("nav").accessibleDropDown();
+        });// end ready
+        $.fn.accessibleDropDown = function() {
+            var el = $(this);
+            $("a", el).focus(function(){
+                $(this).parents("li").addClass("hover");
+            }).blur(function(){
+                $(this).parents("li").removeClass("hover");
+            });
+        }
+        </script>
+    </head>
+    <body>
+    <div id="wrapper">
+            <header>
+            <h1>Page Header</h1>
+                <nav>
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Guitars</a>
+                            <ul>
+                                <li><a href="#">Acoustic</a></li>
+                                <li><a href="#">Electric</a></li>
+                                <li><a href="#">Bass</a></li>
+                                <li><a href="#">Special</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="">Services</a>
+                            <ul>
+                                <li><a href="#">Re-string</a></li>
+                                <li><a href="#">Repairs</a></li>
+                                <li><a href="#">Lessons</a></li>
+                                <li><a href="#">Consignment</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="">Information</a>
+                            <ul>
+                                <li><a href="#">Sub-Topic 1</a></li>
+                                <li><a href="#">Sub-Topic 2</a></li>
+                                <li><a href="#">Sub-Topic 3</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <aside>
+               <p>The side content</p>
+                    <p>The sidebar content</p>
+                    <p>The sidebar content</p>
+                    <p>The sidebar content</p>
+                    <p>The sidebar content</p>
+                    <p>The sidebar content</p>
+                    <p>The sidebar content</p>
+            </aside>
+            <section>
+                    <article>
+                        <h2>Article One Heading</h2>
+                        <p>Article One content</p>
+                        <img src="images/pic07.jpg" alt="an image" class="rgt">
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. </p> <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
+                    </article>
+
+                    <h2 class="spec"></h2>
+                    <article class="cols">
+                        <h2 class="cols-span">Nihil Molestiae Consequatur</h2>
+                        <p class="lead cols-span">
+                            "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish."
+                        </p>
+                    </article>
+            </section>
+            <aside class="ads">
+                <p>Adeverstisment can run the size out to the margin of the previous container element, no more!</p>
+                <p>Advertisement</p>
+                <p>Advertisement</p>
+                <p>Advertisement</p>
+                <p>Advertisement</p>
+                <p>Advertisement</p>
+
+            </aside>
+            <footer>
+            <p>Copyright 2020 All rights Reserved</p>
+            </footer>
+    </div>
+    </body>
+</html>
