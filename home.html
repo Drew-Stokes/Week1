@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> 
+        |Template 1|
+        </title>
+        <link href="css/anythingslider.css" rel="stylesheet">
+        <link href="css/theme-metallic.css" rel="stylesheet">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="mediaMenu.css" media="screen">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+        <script src="js/jquery.anythingslider.min.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function(){
+            $("nav").accessibleDropDown();
+            $('#slider3').anythingSlider({
+                theme   :'metallic',
+                expand  :false,
+                resizeContents :true,
+                aspectRatio :true,
+                showMultiple    :1,
+                changeBy    :1,
+                startPanel  :1,
+                autoPlay    :true
+            })
+            .find('.panel')
+            .find('div[class*=caption]').css(
+            {
+                position: 'absolute'
+            })
+            .end()
+            .hover(function() {
+                showCaptions( $(this));
+            },
+            function() {
+                hideCaptions( $(this));
+            }); //end slider
+            showCaptions = function(el) {
+                var $this = el;
+                if ($this.find('.caption-bottom').length) {
+                    $this.find('.caption-bottom')
+                    .show()
+                    .animate({ bottom: 0, opacity: 1}, 400);
+                }
+            };
+            hideCaptions = function(el) {
+                var $this = el;
+                if ($this.find('.caption-bottom').length) {
+                    $this.find('.caption-bottom')
+                    .stop()
+                    .animate({ bottom: -50, opacity: 0}, 350, function() {
+                        $this.find('.caption-bottom').hide();
+                    });
+                }
+            };
+            hideCaptions( $('#slider3 .panel'));
+            $('#dashboard').hover(
+                function() {
+                    $(this).stop().animate(
+                        {
+                            left: '0',
+                            backgroundColor: '#483838'
+                        },
+                        500,
+                        'easeOutCubic'
+                    ); //end animate
+                    },
+                    function() {
+                        $(this).stop().animate(
+                            {
+                                left: '-92px',
+                                backgroundColor: '#e1e2dd'
+                            },
+                            1500,
+                            'easeOutBounce'
+                        );// end animate
+                    }
+    
+            ); // end hover
+            $('#dashboard img').hover(
+                function(){
+                    $(this).stop().animate(
+                        {opacity: 1.0}, 500
+                    );
+                },
+                function() {
+                    $(this).stop().animate(
+                        {opacity: 0.4}, 500
+                    );
+                });
+                $('nav ul li a').hover(
+                    function() {
+                        $(this).stop().animate( //
+                            {
+                                paddingRight: '2.5em'
+                            }, 1000 );
+                        },
+                        function(){
+                            $(this).stop().animate(
+                            {
+                                paddingright: '1.2em'
+                            }, 1000);
+                        
+                        });//end nav hover
+                        
+        });// end ready
+        $.fn.accessibleDropDown = function() {
+            var el = $(this);
+            $("a", el).focus(function(){
+                $(this).parents("li").addClass("hover");
+            }).blur(function(){
+                $(this).parents("li").removeClass("hover");
+            });
+        }
+        </script>
+    </head>
+    <body>
+    <div id="wrapper">
+            <header>
+            <h1>Guitar Shop</h1>
+                <nav>
+                    <ul>
+                        <li><a href="slider.html">Home</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Guitars</a>
+                            <ul>
+                                <li><a href="#">Acoustic</a></li>
+                                <li><a href="#">Electric</a></li>
+                                <li><a href="#">Bass</a></li>
+                                <li><a href="#">Special</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="">Services</a>
+                            <ul>
+                                <li><a href="#">Re-string</a></li>
+                                <li><a href="#">Repairs</a></li>
+                                <li><a href="#">Lessons</a></li>
+                                <li><a href="#">Consignment</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="">Information</a>
+                            <ul>
+                                <li><a href="#">Sub-Topic 1</a></li>
+                                <li><a href="#">Sub-Topic 2</a></li>
+                                <li><a href="#">Sub-Topic 3</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div id="dashboard">
+                <a href="#"><img src="icons/fb.png" width="70" height="70" title="Follow on Facebook"></a>
+                <a href="#"><img src="icons/g+.png" width="70" height="70" title="Add to Circles on Google+"></a>
+                <a href="#"><img src="icons/ttr.png" width="70" height="70" title="Follow on Twitter"></a>
+                <a href="#"><img src="icons/ln.png" width="70" height="70" title="Add on LinkedIn"></a>
+                <a href="#"><img src="icons/ig.png" width="70" height="70" title="Follow on Instagram"></a>
+                <a href="#"><img src="icons/pnt.png" width="70" height="70" title="Follow on Pinterest"></a>
+                <a href="#"><img src="icons/yt.png" width="70" height="70" title="Subscribe to our YouTube Channel"></a>
+            </div>
+            <aside>
+               <p>The side content</p>
+                    <p>The sidebar content</p>
+                    <p>The sidebar content</p>
+                    <p>The sidebar content</p>
+                    <p>The sidebar content</p>
+                    <p>The sidebar content</p>
+                    <p>The sidebar content</p>
+            </aside>
+            <section>
+                    <article>
+                        <ul id="slider3">
+                        <li>
+                            <div class="caption-top">
+                                Nothing like a little LP Goldtop to get you going!
+                            </div>
+                            <a href="descPage.html">
+                                <img src="images/guitar01.jpg" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="descPage2.html">
+                                <img src="images/guitar02.jpg" alt="">
+                            </a>
+                            <div class="caption-right">
+                                Acoustic blues can be so much fun!
+                            </div>
+                        </li>
+                        <li>
+                            <a href="descPage3.html">
+                                <img src="images/guitar03.jpg" alt="">
+                            </a>
+                            <div class="caption-bottom">
+                                Ebony Fretboard and brass wound Elixer strings
+                            </div>
+                        </li>
+                        <li>
+                            <a href="descPage4.html">
+                                <img src="images/guitar04.jpg" alt="">
+                            </a>
+                            <div class="caption-left">
+                                Step on up and play us a tune.
+                            </div>
+                        </li>
+                        </ul>
+                    </article>
+
+                    <h2 class="spec"></h2>
+                    <article class="cols">
+                        <h2 class="cols-span">Nihil Molestiae Consequatur</h2>
+                        <p class="lead cols-span">
+                            "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish."
+                        </p>
+                    </article>
+            </section>
+            <aside class="ads">
+                <p>Adeverstisment can run the size out to the margin of the previous container element, no more!</p>
+                <p>Advertisement</p>
+                <p>Advertisement</p>
+                <p>Advertisement</p>
+                <p>Advertisement</p>
+                <p>Advertisement</p>
+
+            </aside>
+            <footer>
+            <p>Copyright 2020 All rights Reserved</p>
+            </footer>
+    </div>
+    </body>
+</html>
